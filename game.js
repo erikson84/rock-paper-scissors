@@ -38,7 +38,44 @@ function playerChoice() {
 }
 
 function turn(computerChoice, playerChoice) {
-
+    switch (playerChoice) {
+        case 'rock':
+            if (computerChoice == 'paper') {
+                alert('Paper beats rock! Computer won!');
+                return 'computer';
+            } else if (computerChoice == 'scissors') {
+                alert('Rock breaks scissors! You won!');
+                return 'player';
+            } else {
+                alert("It's a tie!");
+                return 'tie';
+            }
+        case 'paper':
+            if (computerChoice == 'scissors') {
+                alert('Scissors beats paper! Computer won!');
+                return 'computer';
+            } else if (computerChoice == 'rock') {
+                alert('Paper wraps rock! You won!');
+                return 'player';
+            } else {
+                alert("It's a tie!");
+                return 'tie';
+            }
+        case 'scissors':
+            if (computerChoice == 'rock') {
+                alert('Rock breaks scissors! Computer won!');
+                return 'computer';
+            } else if (computerChoice == 'paper') {
+                alert('Scissors cut paper! You won!');
+                return 'player';
+            } else {
+                alert("It's a tie!");
+                return 'tie';
+            }
+        default:
+            alert('Something went terrible wrong!');
+            break;
+    }
 }
 
 function playGame(n=5) {
