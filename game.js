@@ -86,7 +86,8 @@ function playGame(n=5) {
         let playerHand = playerChoice();
 
         if (playerHand == null) {
-            break;
+            alert(`Game cancelled.\nFinal score\nComputer: ${computerScore} vs ${playerScore}: Player`);
+            return;
         }
 
         let computerHand = computerChoice();
@@ -97,14 +98,12 @@ function playGame(n=5) {
             playerScore++;
         } else if (result == 'computer') {
             computerScore++;
-        } else {
-
         }
 
         if (playerScore > Math.floor(n/2) || computerScore > Math.floor(n/2)) break;
     }
 
-    alert(`Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won!`);
+    alert(`Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won!\nFinal Score\nComputer: ${computerScore} vs ${playerScore}: Player`);
 
 }
 
