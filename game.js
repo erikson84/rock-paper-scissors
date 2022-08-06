@@ -1,4 +1,4 @@
-function computerPlay() {
+function computerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
     let choiceString;
 
@@ -79,6 +79,25 @@ function turn(computerChoice, playerChoice) {
 }
 
 function playGame(n=5) {
+    let computerScore = 0;
+    let playerScore = 0;
+
+    for (let g=0; g < n; g++) {
+        let playerHand = playerChoice();
+        let computerHand = computerChoice();
+
+        result = turn(computerHand, playerHand);
+
+        if (result == 'player') {
+            playerScore++;
+        } else if (result == 'computer') {
+            computerScore++;
+        }
+
+        if (playerScore > Math.floor(n/2) || computerScore > Math.floor(n/2)) break;
+    }
+
+    alert(`Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won!`);
 
 }
 
