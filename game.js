@@ -33,7 +33,7 @@ function playerChoice() {
         
         default:
             alert("Please choose a valid option");
-            return '';
+            return playerChoice();
     }
 }
 
@@ -84,6 +84,11 @@ function playGame(n=5) {
 
     for (let g=0; g < n; g++) {
         let playerHand = playerChoice();
+
+        if (playerHand == null) {
+            break;
+        }
+
         let computerHand = computerChoice();
 
         result = turn(computerHand, playerHand);
@@ -92,6 +97,8 @@ function playGame(n=5) {
             playerScore++;
         } else if (result == 'computer') {
             computerScore++;
+        } else {
+
         }
 
         if (playerScore > Math.floor(n/2) || computerScore > Math.floor(n/2)) break;
