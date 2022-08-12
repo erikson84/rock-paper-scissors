@@ -6,11 +6,13 @@ resetButton.addEventListener("click", resetGame);
 
 resetButton.disabled = true;
 
-buttons.forEach(btn => btn.addEventListener("mouseenter", highlightButton));
-buttons.forEach(btn => btn.addEventListener("mouseleave", unlightButton));
-buttons.forEach(btn => btn.addEventListener("mousedown", clickButton));
-buttons.forEach(btn => btn.addEventListener("mouseup", unclickButton));
-buttons.forEach(btn => btn.addEventListener("click", playGame));
+buttons.forEach(btn => {
+    btn.addEventListener("mouseenter", highlightButton);
+    btn.addEventListener("mouseleave", unlightButton);
+    btn.addEventListener("mousedown", clickButton);
+    btn.addEventListener("mouseup", unclickButton);
+    btn.addEventListener("click", playGame);
+});
 
 const playerScoreBoard = document.querySelector("#playpoints");
 const computerScoreBoard = document.querySelector("#comppoints");
@@ -66,8 +68,8 @@ function computerChoice() {
 function playGame(e) {
 
 
-    playerScore = +playerScoreBoard.textContent;
-    computerScore = +computerScoreBoard.textContent;
+    let playerScore = +playerScoreBoard.textContent;
+    let computerScore = +computerScoreBoard.textContent;
 
     if (playerScore == 5 || computerScore == 5) return;
 
@@ -96,35 +98,35 @@ function turn(computerChoice, playerChoice) {
     switch (playerChoice) {
         case 'rock':
             if (computerChoice == 'paper') {
-                message.textContent = 'Paper beats rock! Computer won!';
+                message.textContent = '🧻 Paper beats rock 💎! Computer won!';
                 return 'computer';
             } else if (computerChoice == 'scissors') {
-                message.textContent = 'Rock breaks scissors! You won!';
+                message.textContent = '💎 Rock breaks scissors ✂! You won!';
                 return 'player';
             } else {
-                message.textContent = "Rock and rock! It's a tie!";
+                message.textContent = "💎 Rock and rock 💎! It's a tie!";
                 return 'tie';
             }
         case 'paper':
             if (computerChoice == 'scissors') {
-                message.textContent = 'Scissors beats paper! Computer won!';
+                message.textContent = '✂ Scissors beats paper 🧻! Computer won!';
                 return 'computer';
             } else if (computerChoice == 'rock') {
-                message.textContent = 'Paper wraps rock! You won!';
+                message.textContent = '🧻 Paper wraps rock 💎! You won!';
                 return 'player';
             } else {
-                message.textContent = "Paper and paper! It's a tie!";
+                message.textContent = "🧻 Paper and paper 🧻! It's a tie!";
                 return 'tie';
             }
         case 'scissors':
             if (computerChoice == 'rock') {
-                message.textContent = 'Rock breaks scissors! Computer won!';
+                message.textContent = '💎 Rock breaks scissors ✂! Computer won!';
                 return 'computer';
             } else if (computerChoice == 'paper') {
-                message.textContent = 'Scissors cuts paper! You won!';
+                message.textContent = '✂ Scissors cuts paper 🧻! You won!';
                 return 'player';
             } else {
-                message.textContent = "Scissors and scissors! It's a tie!";
+                message.textContent = "✂ Scissors and scissors ✂! It's a tie!";
                 return 'tie';
             }
         default:

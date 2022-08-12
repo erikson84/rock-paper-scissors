@@ -1,6 +1,13 @@
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
     margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 h1 {
@@ -21,16 +28,23 @@ h2 {
 }
 
 .main {
+    height:100%;
     display: flex;
+    flex-direction: column;
+}
+
+.selector {
+    display: flex;
+    flex: 1;
     flex-direction: column;
     background-color: rgb(57, 125, 226);
 }
 
 .buttons {
     display: flex;
-    padding: 0px 100px 0px 100px;
+    padding: 0px 150px 0px 150px;
     justify-content: space-around;
-    gap: 50px;
+    gap: 80px;
 }
 
 .button {
@@ -63,13 +77,13 @@ h2 {
 }
 
 .points {
+    flex: 1;
     display: flex;
-    margin: 0;
-    padding: 0;
     background-color: rgb(20, 20, 20);
     color: cornsilk;
     justify-content: space-between;
     align-items: center;
+    padding: 5px;
 }
 
 .vs {
