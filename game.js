@@ -49,7 +49,9 @@ function computerChoice() {
     let choiceString;
 
     switch (choice) {
-
+        case 1:
+            choiceString = 'rock';
+            break;
         case 2:
             choiceString = 'paper';
             break;
