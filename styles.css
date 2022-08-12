@@ -103,6 +103,8 @@ h2 {
     font-size: 20px;
     color:aliceblue;
     background-color: cadetblue;
-    border: 0;
+    border: 2px solid;
+    border-color: rgb(37, 131, 134);
+    border-radius: 3px;
     padding: 10px;
 }

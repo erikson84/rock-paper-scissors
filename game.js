@@ -1,10 +1,19 @@
 const buttons = document.querySelectorAll(".button");
 
+const resetButton = document.querySelector("#restart");
+
+resetButton.addEventListener("click", resetGame);
+
+resetButton.disabled = true;
+
 buttons.forEach(btn => btn.addEventListener("mouseenter", highlightButton));
 buttons.forEach(btn => btn.addEventListener("mouseleave", unlightButton));
 buttons.forEach(btn => btn.addEventListener("mousedown", clickButton));
 buttons.forEach(btn => btn.addEventListener("mouseup", unclickButton));
-buttons.forEach(btn => btn.addEventListener("click", playerChoice));
+buttons.forEach(btn => btn.addEventListener("click", playGame));
+
+const playerScoreBoard = document.querySelector("#playpoints");
+const computerScoreBoard = document.querySelector("#comppoints");
 
 
 const message = document.querySelector(".message");
@@ -27,14 +36,20 @@ function unclickButton(e) {
 
 }
 
+function resetGame() {
+    playerScoreBoard.textContent = 0;
+    computerScoreBoard.textContent = 0;
+    message.textContent = "New game"
+    resetButton.disabled = true;
+
+}
+
 function computerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
     let choiceString;
 
     switch (choice) {
-        case 1:
-            choiceString = 'rock';
-            break;
+
         case 2:
             choiceString = 'paper';
             break;
@@ -46,16 +61,18 @@ function computerChoice() {
     return choiceString;
 }
 
-function playerChoice(e) {
+function playGame(e) {
+
+
+    playerScore = +playerScoreBoard.textContent;
+    computerScore = +computerScoreBoard.textContent;
+
+    if (playerScore == 5 || computerScore == 5) return;
+
     let playerHand = e.srcElement.id;
     let computerHand = computerChoice();
 
-    const playerScoreBoard = document.querySelector("#playpoints");
-    const computerScoreBoard = document.querySelector("#comppoints");
-
-    playerScore = +playerScoreBoard.textContent;
-    computerScore = +playerScoreBoard.textContent;
-
+    
     let result = turn(computerHand, playerHand);
 
     if (result == 'player') {
@@ -64,6 +81,11 @@ function playerChoice(e) {
     } else if (result == 'computer') {
         computerScore++;
         computerScoreBoard.textContent = computerScore;
+    }
+
+    if (playerScore == 5 || computerScore == 5) {
+        message.textContent = `Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won!`;
+        resetButton.disabled = false;
     }
 
 }
@@ -97,7 +119,7 @@ function turn(computerChoice, playerChoice) {
                 message.textContent = 'Rock breaks scissors! Computer won!';
                 return 'computer';
             } else if (computerChoice == 'paper') {
-                message.textContent = 'Scissors cut paper! You won!';
+                message.textContent = 'Scissors cuts paper! You won!';
                 return 'player';
             } else {
                 message.textContent = "Scissors and scissors! It's a tie!";
