@@ -45,7 +45,21 @@ h2 {
     text-align: center;
     aspect-ratio: 1/1;
     vertical-align: middle;
+    transition: all .07s ease;
     background-color:  rgb(92, 144, 221);
+    box-shadow: 0 0 1rem black;
+}
+
+.highlight {
+    background-color:  rgb(173, 192, 221);
+    transform: scale(1.1);
+
+}
+
+.clicking {
+    background-color:  rgb(15, 68, 141);
+    transform: scale(0.9);
+    box-shadow: 0 0 5rem black;
 }
 
 .points {

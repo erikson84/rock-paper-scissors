@@ -1,3 +1,31 @@
+const buttons = document.querySelectorAll(".button");
+
+buttons.forEach(btn => btn.addEventListener("mouseenter", highlightButton));
+buttons.forEach(btn => btn.addEventListener("mouseleave", unlightButton));
+buttons.forEach(btn => btn.addEventListener("mousedown", clickButton));
+buttons.forEach(btn => btn.addEventListener("mouseup", unclickButton));
+
+const message = document.querySelector(".message")
+
+
+function highlightButton(e) {
+    this.classList.add("highlight");
+}
+
+function unlightButton(e) {
+    this.classList.remove("highlight");
+}
+
+function clickButton(e) {
+    this.classList.add("clicking");
+
+}
+
+function unclickButton(e) {
+    this.classList.remove("clicking");
+
+}
+
 function computerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
     let choiceString;
@@ -106,5 +134,3 @@ function playGame(n=5) {
     alert(`Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won!\nFinal Score\nComputer: ${computerScore} vs ${playerScore}: Player`);
 
 }
-
-playGame();
