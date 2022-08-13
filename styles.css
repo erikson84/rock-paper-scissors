@@ -64,13 +64,13 @@ h2 {
     box-shadow: 0 0 1rem black;
 }
 
-.highlight {
+.button:hover {
     background-color:  rgb(173, 192, 221);
     transform: scale(1.1);
 
 }
 
-.clicking {
+.button:active {
     background-color:  rgb(15, 68, 141);
     transform: scale(0.9);
     box-shadow: 0 0 5rem black;
@@ -115,10 +115,25 @@ h2 {
 
 #restart {
     font-size: 20px;
-    color:aliceblue;
-    background-color: cadetblue;
+    color:rgb(156, 202, 243);
+    background-color: rgb(43, 91, 95);
     border: 2px solid;
     border-color: rgb(37, 131, 134);
     border-radius: 3px;
     padding: 10px;
+    transition: all .07s ease;
+}
+
+#restart:enabled {
+    color:aliceblue;
+    background-color: cadetblue;
+    box-shadow: 0 0 5rem black;
+}
+
+#restart:hover {
+    transform: scale(1.1);
+}
+
+#restart:active {
+    transform: scale(0.9);
 }

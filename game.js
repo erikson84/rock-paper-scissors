@@ -6,13 +6,7 @@ resetButton.addEventListener("click", resetGame);
 
 resetButton.disabled = true;
 
-buttons.forEach(btn => {
-    btn.addEventListener("mouseenter", highlightButton);
-    btn.addEventListener("mouseleave", unlightButton);
-    btn.addEventListener("mousedown", clickButton);
-    btn.addEventListener("mouseup", unclickButton);
-    btn.addEventListener("click", playGame);
-});
+buttons.forEach(btn => btn.addEventListener("click", playGame));
 
 const playerScoreBoard = document.querySelector("#playpoints");
 const computerScoreBoard = document.querySelector("#comppoints");
@@ -20,28 +14,10 @@ const computerScoreBoard = document.querySelector("#comppoints");
 
 const message = document.querySelector(".message");
 
-function highlightButton(e) {
-    this.classList.add("highlight");
-}
-
-function unlightButton(e) {
-    this.classList.remove("highlight");
-}
-
-function clickButton(e) {
-    this.classList.add("clicking");
-
-}
-
-function unclickButton(e) {
-    this.classList.remove("clicking");
-
-}
-
 function resetGame() {
     playerScoreBoard.textContent = 0;
     computerScoreBoard.textContent = 0;
-    message.textContent = "New game"
+    message.textContent = "💎 🧻 ✂";
     resetButton.disabled = true;
 
 }
@@ -88,7 +64,7 @@ function playGame(e) {
     }
 
     if (playerScore == 5 || computerScore == 5) {
-        message.textContent = `Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won!`;
+        message.textContent = `💎 🧻 ✂ Game over! ${(computerScore > playerScore)? 'The computer ':'You '} won! 💎 🧻 ✂`;
         resetButton.disabled = false;
     }
 
